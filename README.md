@@ -1,12 +1,5 @@
 # 🚀 Employee Management System (Frontend)
 
-![Repo Size](https://img.shields.io/github/repo-size/your-username/employee-management-system-frontend?color=blue)  
-![Stars](https://img.shields.io/github/stars/your-username/employee-management-system-frontend?style=social)  
-![Forks](https://img.shields.io/github/forks/your-username/employee-management-system-frontend?style=social)  
-![Issues](https://img.shields.io/github/issues/your-username/employee-management-system-frontend)  
-![Last Commit](https://img.shields.io/github/last-commit/your-username/employee-management-system-frontend)  
-![License](https://img.shields.io/github/license/your-username/employee-management-system-frontend?color=green)  
-
 > A modern **Employee Management System** frontend built with **React, React Native, TailwindCSS, and JavaScript**.  
 > Designed for seamless web and mobile experiences with a clean and responsive UI.  
 
