@@ -24,6 +24,7 @@ const menu = [
   { name: "Performance", path: "/performance", icon: TrendingUp },
   { name: "Track Employee", path: "/location", icon: TrendingUp },
   { name: "Send Location", path: "/live-location", icon: TrendingUp },
+  { name: "Wellness and Care", path: "/wellness", icon: LayoutDashboard },
   { name: "Projects", path: "/project", icon: FolderKanban },
   { name: "Products", path: "/product", icon: Package },
   { name: "Supports", path: "/support", icon: Package },
@@ -37,11 +38,10 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
     <div
       className={`${
         sidebarOpen ? "w-64" : "w-20"
-      } bg-white shadow-lg p-4 flex flex-col transition-all duration-300 relative mb-[-5rem]`}
+      } h-screen bg-white shadow-lg flex flex-col transition-all duration-300`}
     >
       {/* Top Section */}
-      <div className="flex items-center mb-6 relative">
-        {/* App Name (only visible when expanded) */}
+      <div className="flex items-center relative p-4 border-b">
         <h1
           className={`ml-2 text-2xl font-bold whitespace-nowrap transition-opacity duration-300 ${
             sidebarOpen ? "opacity-100" : "opacity-0"
@@ -49,34 +49,29 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
         >
           EMS
         </h1>
-
-        {/* Hamburger Button (always visible, fixed top-right inside sidebar) */}
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
-          className="p-2 rounded-lg hover:bg-gray-100 transition absolute top-0 right-0"
+          className="p-2 rounded-lg hover:bg-gray-100 transition absolute top-1 right-1"
         >
-          <Menu size={24} />
+          <Menu size={22} />
         </button>
       </div>
 
-      {/* Navigation Menu */}
-      <nav className="flex-1 mt-6">
+      {/* Navigation Menu (scrollable area) */}
+      <nav className="flex-1 overflow-y-auto px-2 py-4">
         {menu.map(({ name, path, icon: Icon }) => (
           <Link
             key={path}
             to={path}
             className={`flex items-center ${
               sidebarOpen ? "gap-3 px-4" : "justify-center"
-            } py-3 rounded-xl mb-2 transition-colors ${
+            } py-3 rounded-xl mb-1 transition-colors ${
               location.pathname === path
                 ? "bg-blue-500 text-white"
                 : "hover:bg-gray-100"
             }`}
           >
-            {/* Icon always visible */}
             <Icon size={20} />
-
-            {/* Text hides only when sidebar collapsed */}
             <span
               className={`transition-opacity duration-300 ${
                 sidebarOpen ? "opacity-100" : "opacity-0 w-0"

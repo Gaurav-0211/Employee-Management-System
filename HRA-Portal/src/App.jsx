@@ -32,6 +32,7 @@ import Products from "./pages/Products";
 import Project from "./pages/Project";
 import SettingsPage from "./pages/SettingsPage";
 import Supports from "./pages/Supports";
+import WellnessDashboard from "./pages/WellnessDashboard";
 
 export default function App() {
   return (
@@ -86,6 +87,7 @@ export default function App() {
               <Route path="/live-location" element={<LiveLocationShare />} />
               <Route path="/project" element={<Project />} />
               <Route path="/product" element={<Products />} />
+              <Route path="/wellness" element={<WellnessDashboard />} />
               <Route path="/support" element={<Supports />} />
               <Route path="/settings" element={<SettingsPage />} />
             </Route>
