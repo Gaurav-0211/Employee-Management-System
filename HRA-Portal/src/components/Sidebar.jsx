@@ -22,6 +22,8 @@ const menu = [
   { name: "Leaves", path: "/leaves", icon: CalendarDays },
   { name: "Holidays", path: "/holiday", icon: CalendarCheckIcon },
   { name: "Performance", path: "/performance", icon: TrendingUp },
+  { name: "Track Employee", path: "/location", icon: TrendingUp },
+  { name: "Send Location", path: "/live-location", icon: TrendingUp },
   { name: "Projects", path: "/project", icon: FolderKanban },
   { name: "Products", path: "/product", icon: Package },
   { name: "Supports", path: "/support", icon: Package },

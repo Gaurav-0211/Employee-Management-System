@@ -22,9 +22,11 @@ import ResetPassword from "./pages/ResetPassword";
 import Attendance from "./pages/Attendance";
 import Dashboard from "./pages/Dashboard";
 import Employees from "./pages/Employees";
+import EmployeeTracker from "./pages/EmployeeTracker";
 import HolidayPage from "./pages/HolidayPage";
 import Home from "./pages/Home";
 import Leaves from "./pages/Leaves";
+import LiveLocationShare from "./pages/LiveLocationShare";
 import Performance from "./pages/Performance";
 import Products from "./pages/Products";
 import Project from "./pages/Project";
@@ -80,6 +82,8 @@ export default function App() {
               <Route path="/leaves" element={<Leaves />} />
               <Route path="/holiday" element={<HolidayPage />} />
               <Route path="/performance" element={<Performance />} />
+              <Route path="/location" element={<EmployeeTracker />} />
+              <Route path="/live-location" element={<LiveLocationShare />} />
               <Route path="/project" element={<Project />} />
               <Route path="/product" element={<Products />} />
               <Route path="/support" element={<Supports />} />
