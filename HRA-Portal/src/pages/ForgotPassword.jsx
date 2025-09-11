@@ -67,7 +67,7 @@ function ForgotPassword() {
         {/* Back to Login */}
         <p className="text-center mt-6 text-sm text-gray-600">
           Remember your password?{" "}
-          <a href="/auth-login" className="text-purple-600 hover:underline">
+          <a href="/login" className="text-purple-600 hover:underline">
             Back to Login
           </a>
         </p>
