@@ -83,6 +83,17 @@ employee-management-system-frontend/
 <img width="1467" height="761" alt="Screenshot 2025-09-08 174737" src="https://github.com/user-attachments/assets/3b7ec6df-256f-46d7-8a09-c8552e811949" />
 <img width="1468" height="767" alt="Screenshot 2025-09-08 174759" src="https://github.com/user-attachments/assets/18b0ef32-7271-46c2-8dae-5899cd71f8c3" />
 
+### 🥇Department Wise Performance
+<img width="1491" height="795" alt="Screenshot 2025-09-11 173212" src="https://github.com/user-attachments/assets/8bc10631-ddbf-415e-be34-8b38a6af7370" />
+
+### 🧑‍🔧Live employee tracking(Sales person or Recovery agents)
+<img width="1344" height="721" alt="Screenshot 2025-09-11 173250" src="https://github.com/user-attachments/assets/e1b60a3e-b58e-4fd2-8c97-abacd086f5ba" />
+<img width="1365" height="743" alt="Screenshot 2025-09-11 173432" src="https://github.com/user-attachments/assets/e696c06e-e4e5-4663-9f70-a5a9c0f480b5" />
+
+### 🏋️Employee Wellness and Mental Health
+<img width="1469" height="731" alt="Screenshot 2025-09-11 173526" src="https://github.com/user-attachments/assets/7a817c41-aa63-4403-bb1f-f0f6855a9ce5" />
+<img width="1464" height="752" alt="Screenshot 2025-09-11 173555" src="https://github.com/user-attachments/assets/1f3b4447-5280-4df9-9610-519569642410" />
+
 #### 📐Settings
 <img width="1401" height="736" alt="Screenshot 2025-09-08 174816" src="https://github.com/user-attachments/assets/8a1b651e-ce25-469e-b321-830243fd4338" />
 
