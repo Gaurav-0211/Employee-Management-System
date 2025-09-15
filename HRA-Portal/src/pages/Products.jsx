@@ -135,7 +135,7 @@ export default function Products() {
   return (
     <div className="p-6 space-y-10 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
       <h1 className="text-4xl font-extrabold text-center text-indigo-700 drop-shadow-md">
-        🚀 Products Management
+        Products Management
       </h1>
 
       {message && (
