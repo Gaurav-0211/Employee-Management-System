@@ -21,6 +21,7 @@ import ResetPassword from "./pages/ResetPassword";
 // Protected Pages
 import { ThemeProvider } from "./context/ThemeProvider";
 import Attendance from "./pages/Attendance";
+import DailyAttendancePage from "./pages/DailyAttendancePage";
 import Dashboard from "./pages/Dashboard";
 import Employees from "./pages/Employees";
 import EmployeeTracker from "./pages/EmployeeTracker";
@@ -91,6 +92,10 @@ export default function App() {
                 <Route path="/product" element={<Products />} />
                 <Route path="/wellness" element={<WellnessDashboard />} />
                 <Route path="/support" element={<Supports />} />
+                <Route
+                  path="/daily-attendance"
+                  element={<DailyAttendancePage />}
+                />
                 <Route path="/settings" element={<SettingsPage />} />
               </Route>
             </Route>

@@ -23,6 +23,7 @@ const menu = [
   { name: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
   { name: "Employees", path: "/employees", icon: Users },
   { name: "Attendance", path: "/attendance", icon: CalendarCheck },
+  { name: "Daily Attendance", path: "/daily-attendance", icon: CalendarCheck },
   { name: "Leaves", path: "/leaves", icon: CalendarDays },
   { name: "Holidays", path: "/holiday", icon: CalendarHeart },
   { name: "Performance", path: "/performance", icon: TrendingUp },
