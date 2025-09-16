@@ -302,7 +302,7 @@ const SettingsSwitch = ({ icon, title, description, checked, onChange }) => {
     <div className="flex items-center justify-between p-4 rounded-lg shadow-md dark:bg-gray-800 bg-gray-100">
       <div>
         <h3 className="font-semibold">{title}</h3>
-        <p className="text-sm text-gray-500 dark:text-gray-400">
+        <p className="text-white text-gray-500 dark:text-gray-400">
           {description}
         </p>
       </div>
