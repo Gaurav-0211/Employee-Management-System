@@ -13,6 +13,7 @@ import {
   UserCog,
 } from "lucide-react";
 import { useState } from "react";
+import { useTheme } from "../context/ThemeProvider";
 
 // 🔹 Reusable Components
 function Card({ children }) {
@@ -63,7 +64,7 @@ function Switch({ checked, onChange }) {
 
 // 🔹 Main Component
 export default function SettingsPage() {
-  const [darkMode, setDarkMode] = useState(false);
+  const { darkMode, setDarkMode } = useTheme();
   const [twoFactor, setTwoFactor] = useState(false);
   const [notifications, setNotifications] = useState(true);
   const [themeColor, setThemeColor] = useState("blue");
@@ -296,18 +297,21 @@ function SettingsCard({ icon, title, description, actionText, action }) {
   );
 }
 
-function SettingsSwitch({ icon, title, description, checked, onChange }) {
+const SettingsSwitch = ({ icon, title, description, checked, onChange }) => {
   return (
-    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-      <Card>
-        <CardHeader>
-          <CardTitle>
-            {icon} {title}
-          </CardTitle>
-          <Switch checked={checked} onChange={onChange} />
-        </CardHeader>
-        <CardContent>{description}</CardContent>
-      </Card>
-    </motion.div>
+    <div className="flex items-center justify-between p-4 rounded-lg shadow-md dark:bg-gray-800 bg-gray-100">
+      <div>
+        <h3 className="font-semibold">{title}</h3>
+        <p className="text-sm text-gray-500 dark:text-gray-400">
+          {description}
+        </p>
+      </div>
+      <button
+        onClick={() => onChange(!checked)}
+        className="p-2 rounded-full bg-gray-200 dark:bg-gray-700"
+      >
+        {icon}
+      </button>
+    </div>
   );
-}
+};

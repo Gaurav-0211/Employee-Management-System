@@ -2,13 +2,14 @@ import { Bell, Globe, LogOut, Moon, Settings, Sun, User } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { useTheme } from "../context/ThemeProvider";
 
 export default function Topbar() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [profileModalOpen, setProfileModalOpen] = useState(false);
-  const [theme, setTheme] = useState("light");
+  const { theme, toggleTheme } = useTheme();
   const [language, setLanguage] = useState("EN");
   const [notifOpen, setNotifOpen] = useState(false);
   const [unread, setUnread] = useState(3);
@@ -19,14 +20,6 @@ export default function Topbar() {
   const handleSignOut = () => {
     logout();
     navigate("/login");
-  };
-
-  // Theme toggle
-  const toggleTheme = () => {
-    const next = theme === "light" ? "dark" : "light";
-    setTheme(next);
-    if (next === "dark") document.documentElement.classList.add("dark");
-    else document.documentElement.classList.remove("dark");
   };
 
   // Search suggestions mock
@@ -102,10 +95,11 @@ export default function Topbar() {
           onClick={toggleTheme}
           className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800"
         >
-          {theme === "light" ? (
-            <Moon className="w-5 h-5 text-white" />
-          ) : (
+          {/* show icon matching current theme (pick whichever UX you prefer) */}
+          {theme === "dark" ? (
             <Sun className="w-5 h-5 text-yellow-400" />
+          ) : (
+            <Moon className="w-5 h-5 text-slate-700" />
           )}
         </button>
 

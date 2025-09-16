@@ -19,6 +19,7 @@ import Register from "./pages/Register";
 import ResetPassword from "./pages/ResetPassword";
 
 // Protected Pages
+import { ThemeProvider } from "./context/ThemeProvider";
 import Attendance from "./pages/Attendance";
 import Dashboard from "./pages/Dashboard";
 import Employees from "./pages/Employees";
@@ -36,70 +37,72 @@ import WellnessDashboard from "./pages/WellnessDashboard";
 
 export default function App() {
   return (
-    <AuthProvider>
-      <Router>
-        <Routes>
-          {/* Public Routes */}
-          <Route
-            path="/login"
-            element={
-              <PublicLayout>
-                <Login />
-              </PublicLayout>
-            }
-          />
-          <Route
-            path="/register"
-            element={
-              <PublicLayout>
-                <Register />
-              </PublicLayout>
-            }
-          />
-          <Route
-            path="/send-forgot-link"
-            element={
-              <PublicLayout>
-                <ForgotPassword />
-              </PublicLayout>
-            }
-          />
-          <Route
-            path="/reset-password"
-            element={
-              <PublicLayout>
-                <ResetPassword />
-              </PublicLayout>
-            }
-          />
+    <ThemeProvider>
+      <AuthProvider>
+        <Router>
+          <Routes>
+            {/* Public Routes */}
+            <Route
+              path="/login"
+              element={
+                <PublicLayout>
+                  <Login />
+                </PublicLayout>
+              }
+            />
+            <Route
+              path="/register"
+              element={
+                <PublicLayout>
+                  <Register />
+                </PublicLayout>
+              }
+            />
+            <Route
+              path="/send-forgot-link"
+              element={
+                <PublicLayout>
+                  <ForgotPassword />
+                </PublicLayout>
+              }
+            />
+            <Route
+              path="/reset-password"
+              element={
+                <PublicLayout>
+                  <ResetPassword />
+                </PublicLayout>
+              }
+            />
 
-          {/* Protected Routes */}
-          <Route element={<PrivateRoute />}>
-            <Route element={<Layout />}>
-              <Route path="/" element={<Home />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/employees" element={<Employees />} />
-              <Route path="/attendance" element={<Attendance />} />
-              <Route path="/leaves" element={<Leaves />} />
-              <Route path="/holiday" element={<HolidayPage />} />
-              <Route path="/performance" element={<Performance />} />
-              <Route path="/location" element={<EmployeeTracker />} />
-              <Route path="/live-location" element={<LiveLocationShare />} />
-              <Route path="/project" element={<Project />} />
-              <Route path="/product" element={<Products />} />
-              <Route path="/wellness" element={<WellnessDashboard />} />
-              <Route path="/support" element={<Supports />} />
-              <Route path="/settings" element={<SettingsPage />} />
+            {/* Protected Routes */}
+            <Route element={<PrivateRoute />}>
+              <Route element={<Layout />}>
+                <Route path="/" element={<Home />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/employees" element={<Employees />} />
+                <Route path="/attendance" element={<Attendance />} />
+                <Route path="/leaves" element={<Leaves />} />
+                <Route path="/holiday" element={<HolidayPage />} />
+                <Route path="/performance" element={<Performance />} />
+                <Route path="/location" element={<EmployeeTracker />} />
+                <Route path="/live-location" element={<LiveLocationShare />} />
+                <Route path="/project" element={<Project />} />
+                <Route path="/product" element={<Products />} />
+                <Route path="/wellness" element={<WellnessDashboard />} />
+                <Route path="/support" element={<Supports />} />
+                <Route path="/settings" element={<SettingsPage />} />
+              </Route>
             </Route>
-          </Route>
 
-          {/* Catch-all */}
-          <Route
-            path="/dashboard"
-            element={<Navigate to="/dashboard" replace />}
-          />
-        </Routes>
-      </Router>
-    </AuthProvider>
+            {/* Catch-all */}
+            <Route
+              path="/dashboard"
+              element={<Navigate to="/dashboard" replace />}
+            />
+          </Routes>
+        </Router>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
