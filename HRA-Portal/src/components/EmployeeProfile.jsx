@@ -1,6 +1,6 @@
 export default function EmployeeProfile({ employee }) {
   if (!employee) {
-    return null; // nothing if no employee is selected
+    return null;
   }
 
   return (

@@ -273,7 +273,7 @@ export default function EmployeeEditForm({
     setForm({
       name: employee.name || "",
       email: employee.email || "",
-      password: "", // keep empty for security; user must re-enter if required
+      password: "",
       contactNumber: employee.contactNumber || "",
       address: employee.address || "",
       roleId: employee.role?.id ? String(employee.role.id) : "",

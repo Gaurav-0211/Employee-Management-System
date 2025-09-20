@@ -7,7 +7,6 @@ export default function PrivateRoute() {
   const location = useLocation();
 
   if (!user) {
-    // store attempted path in state
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
