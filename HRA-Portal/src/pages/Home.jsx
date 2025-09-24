@@ -37,15 +37,23 @@ export default function Home() {
     { id: 2, title: "Dussehra", date: "2 Oct" },
     { id: 3, title: "Diwali", date: "24 Oct" },
   ]);
-  const [topEmployees, setTopEmployees] = useState([
-    { id: 1, name: "Aniket Verma", role: "Software Engineer" },
-    { id: 2, name: "Shardul Malhotra", role: "Team Lead" },
-    { id: 3, name: "Giriraj Singh", role: "General Manager" },
-  ]);
+
+  const topEmployees = [
+    { name: "Megha Sharma", dept: "IT", performance: "87%" },
+    { name: "Priya Singh", dept: "Marketing", performance: "85%" },
+    { name: "Rahul Mehta", dept: "Design", performance: "84%" },
+    { name: "Sneha Verma", dept: "HR", performance: "72%" },
+  ];
+
+  const announcements = [
+    { title: "Diwali Bonus Announced!", date: "Sep 1, 2025" },
+    { title: "Office Renovation Completed", date: "Aug 25, 2025" },
+    { title: "New Training Program: AI in HR", date: "Sep 22, 2025" },
+    { title: "Independence day celebration", date: "Aug 15, 2025" },
+  ];
 
   // Chart data placeholders
   const [employeeGrowth, setEmployeeGrowth] = useState([
-    { month: "Jan", employees: 870 },
     { month: "Feb", employees: 905 },
     { month: "Mar", employees: 1020 },
     { month: "Apr", employees: 1090 },
@@ -53,6 +61,7 @@ export default function Home() {
     { month: "Jun", employees: 1240 },
     { month: "Jul", employees: 1310 },
     { month: "Aug", employees: 1345 },
+    { month: "Sep", employees: 1400 },
   ]);
 
   const [attendanceData, setAttendanceData] = useState([
@@ -224,44 +233,49 @@ export default function Home() {
         </motion.div>
       </div>
 
-      {/* Top Employees & Announcements */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      {/* Recent Activity & Top Employees */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
         {/* Top Employees */}
-        <motion.div className="bg-white p-6 rounded-2xl shadow-lg">
-          <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="p-6 rounded-2xl bg-white shadow-lg"
+        >
+          <h2 className="text-lg font-bold text-blue-900 mb-4 flex items-center gap-2">
             <Award className="w-5 h-5 text-yellow-500" /> Top Performing
             Employees
-          </h3>
-          <ul className="space-y-4">
-            {topEmployees.map((emp) => (
-              <li key={emp.id} className="flex items-center gap-4">
-                <img
-                  src={`https://i.pravatar.cc/40?u=${emp.id}`}
-                  alt={emp.name}
-                  className="w-10 h-10 rounded-full"
-                />
-                <div>
-                  <p className="font-medium">{emp.name}</p>
-                  <p className="text-sm text-gray-500">{emp.role}</p>
-                </div>
+          </h2>
+          <ul className="divide-y">
+            {topEmployees.map((emp, i) => (
+              <li key={i} className="py-3 flex justify-between">
+                <span className="font-medium text-gray-700">
+                  {emp.name} -{" "}
+                  <span className="text-sm text-gray-500">{emp.dept}</span>
+                </span>
+                <span className="font-bold text-green-600">
+                  {emp.performance}
+                </span>
               </li>
             ))}
           </ul>
         </motion.div>
 
-        {/* Announcements / Holidays */}
-        <motion.div className="bg-white p-6 rounded-2xl shadow-lg">
-          <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-            <Bell className="w-5 h-5 text-blue-500" /> Upcoming Holidays
-          </h3>
-          <ul className="space-y-4">
-            {holidays.map((h) => (
-              <li
-                key={h.id}
-                className="flex items-center justify-between p-3 rounded-xl bg-blue-50 hover:bg-blue-100 transition"
-              >
-                <span className="font-medium">{h.title}</span>
-                <span className="text-sm text-gray-600">{h.date}</span>
+        {/* Announcements */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="p-6 rounded-2xl bg-white shadow-lg"
+        >
+          <h2 className="text-lg font-bold text-blue-900 mb-4 flex items-center gap-2">
+            <Bell className="w-5 h-5 text-red-500" /> Announcements
+          </h2>
+          <ul className="divide-y">
+            {announcements.map((note, i) => (
+              <li key={i} className="py-3 flex justify-between">
+                <span className="font-medium text-gray-700">{note.title}</span>
+                <span className="text-sm text-gray-500">{note.date}</span>
               </li>
             ))}
           </ul>

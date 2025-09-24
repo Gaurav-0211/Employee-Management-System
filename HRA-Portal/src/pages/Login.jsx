@@ -74,7 +74,7 @@ export default function Login() {
         className="w-full max-w-md bg-white shadow-xl rounded-2xl p-8"
       >
         <h2 className="text-3xl font-bold text-center text-blue-600 mb-6">
-          Welcome Back☺️
+          Admin Login
         </h2>
 
         {/* Global form error */}

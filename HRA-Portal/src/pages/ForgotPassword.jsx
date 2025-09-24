@@ -24,11 +24,11 @@ function ForgotPassword() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-600 via-pink-600 to-red-500 p-6">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-100 via-orange-100 to-red-100 p-6">
       <div className="bg-white shadow-2xl rounded-2xl p-8 w-full max-w-md">
         {/* Header */}
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
-          Forgot Password 🔑
+          Forgot Password
         </h2>
         <p className="text-center text-gray-600 mb-6 text-sm">
           Enter your registered email address and we’ll send you a reset link.
@@ -47,7 +47,7 @@ function ForgotPassword() {
         <button
           onClick={handleForgot}
           disabled={loading || !email}
-          className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3 rounded-lg shadow-lg transition-transform transform hover:scale-[1.02] disabled:opacity-70"
+          className="w-full bg-indigo-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3 rounded-lg shadow-lg transition-transform transform hover:scale-[1.02] disabled:opacity-70"
         >
           {loading ? "Sending..." : "Send Reset Link"}
         </button>

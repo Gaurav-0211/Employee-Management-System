@@ -22,7 +22,6 @@ import ResetPassword from "./pages/ResetPassword";
 import { ThemeProvider } from "./context/ThemeProvider";
 import Attendance from "./pages/Attendance";
 import DailyAttendancePage from "./pages/DailyAttendancePage";
-import Dashboard from "./pages/Dashboard";
 import Employees from "./pages/Employees";
 import EmployeeTracker from "./pages/EmployeeTracker";
 import HolidayPage from "./pages/HolidayPage";
@@ -80,7 +79,6 @@ export default function App() {
             <Route element={<PrivateRoute />}>
               <Route element={<Layout />}>
                 <Route path="/" element={<Home />} />
-                <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/employees" element={<Employees />} />
                 <Route path="/attendance" element={<Attendance />} />
                 <Route path="/leaves" element={<Leaves />} />

@@ -8,7 +8,6 @@ import {
   Headset,
   HeartPulse,
   Home,
-  LayoutDashboard,
   MapPin,
   Menu,
   Package,
@@ -20,7 +19,6 @@ import { Link, useLocation } from "react-router-dom";
 
 const menu = [
   { name: "Home", path: "/", icon: Home },
-  { name: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
   { name: "Employees", path: "/employees", icon: Users },
   { name: "Attendance", path: "/attendance", icon: CalendarCheck },
   { name: "Daily Attendance", path: "/daily-attendance", icon: CalendarCheck },

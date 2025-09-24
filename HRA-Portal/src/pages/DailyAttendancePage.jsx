@@ -1,7 +1,4 @@
 // DailyAttendancePage.jsx
-// React single-file component (Tailwind CSS + Recharts + Axios)
-// Dependencies: axios, date-fns, recharts
-// Usage: Place this component in /src/pages/DailyAttendancePage.jsx and import it into your router.
 
 import axios from "axios";
 import { format, parseISO } from "date-fns";
@@ -305,7 +302,9 @@ export default function DailyAttendancePage() {
     <div className="p-6 bg-white min-h-screen">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold">Daily Attendance</h1>
+          <h1 className="text-2xl font-bold text-indigo-600">
+            Daily Attendance
+          </h1>
           <p className="text-sm text-gray-500">
             Date: <strong>{date}</strong> — Shift {CONFIG.SHIFT_START} to{" "}
             {CONFIG.SHIFT_END}
@@ -339,51 +338,109 @@ export default function DailyAttendancePage() {
         </div>
       </div>
 
-      {/* Stats */}
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mb-6">
-        <div className="p-4 border rounded">
-          <div className="text-sm text-gray-500">Total employees</div>
-          <div className="text-2xl font-bold">{stats.total}</div>
-        </div>
-        <div className="p-4 border rounded">
-          <div className="text-sm text-gray-500">Present</div>
-          <div className="text-2xl font-bold">{stats.present}</div>
-        </div>
-        <div className="p-4 border rounded">
-          <div className="text-sm text-gray-500">Late</div>
-          <div className="text-2xl font-bold">{stats.late}</div>
-        </div>
-        <div className="p-4 border rounded">
-          <div className="text-sm text-gray-500">Absent</div>
-          <div className="text-2xl font-bold">{stats.absent}</div>
-        </div>
-      </div>
+      {/* Employee Stats Section */}
+      <section className="mb-8">
+        <h2 className="text-xl font-semibold text-indigo-600 mb-4">
+          Today’s Overview
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Total Employees */}
+          <div className="p-5 rounded-2xl shadow-md border bg-white hover:shadow-lg transition duration-200">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm font-medium text-gray-500">
+                  Total Employees
+                </p>
+                <p className="text-3xl font-semibold mt-2">{stats.total}</p>
+              </div>
+              <div className="p-3 rounded-full bg-blue-100 text-blue-600">
+                <data size={22} />
+              </div>
+            </div>
+          </div>
 
-      {/* Filters */}
-      <div className="flex items-center gap-4 mb-4">
-        <input
-          className="border px-2 py-1 rounded"
-          placeholder="Search by name/ID/department"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
-        <select
-          value={filterStatus}
-          onChange={(e) => setFilterStatus(e.target.value)}
-          className="border px-2 py-1 rounded"
-        >
-          <option value="all">All statuses</option>
-          <option value="on-time">On-time</option>
-          <option value="minor-late">Minor Late</option>
-          <option value="late">Late</option>
-          <option value="early-leave">Early Leave</option>
-          <option value="absent">Absent</option>
-        </select>
-      </div>
+          {/* Present */}
+          <div className="p-5 rounded-2xl shadow-md border bg-white hover:shadow-lg transition duration-200">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm font-medium text-gray-500">Present</p>
+                <p className="text-3xl font-semibold mt-2">{stats.present}</p>
+              </div>
+              <div className="p-3 rounded-full bg-green-100 text-green-600">
+                <data size={22} />
+              </div>
+            </div>
+          </div>
+
+          {/* Late */}
+          <div className="p-5 rounded-2xl shadow-md border bg-white hover:shadow-lg transition duration-200">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm font-medium text-gray-500">Late</p>
+                <p className="text-3xl font-semibold mt-2">{stats.late}</p>
+              </div>
+              <div className="p-3 rounded-full bg-yellow-100 text-yellow-600">
+                <data size={22} />
+              </div>
+            </div>
+          </div>
+
+          {/* Absent */}
+          <div className="p-5 rounded-2xl shadow-md border bg-white hover:shadow-lg transition duration-200">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm font-medium text-gray-500">Absent</p>
+                <p className="text-3xl font-semibold mt-2">{stats.absent}</p>
+              </div>
+              <div className="p-3 rounded-full bg-red-100 text-red-600">
+                <data size={22} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Filters Section */}
+      <section className="mb-6">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 p-4 bg-gray-50 border rounded-xl shadow-sm">
+          {/* Search */}
+          <div className="relative flex-1">
+            <span className="absolute inset-y-0 left-3 flex items-center text-gray-400">
+              <data size={18} />
+            </span>
+            <input
+              type="text"
+              placeholder="Search by name / ID / department"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              className="w-full pl-10 pr-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm text-sm"
+            />
+          </div>
+
+          {/* Status Filter */}
+          <div className="relative">
+            <span className="absolute inset-y-0 left-3 flex items-center text-gray-400">
+              <data size={18} />
+            </span>
+            <select
+              value={filterStatus}
+              onChange={(e) => setFilterStatus(e.target.value)}
+              className="pl-10 pr-8 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm text-sm"
+            >
+              <option value="all">All statuses</option>
+              <option value="on-time">On-time</option>
+              <option value="minor-late">Minor Late</option>
+              <option value="late">Late</option>
+              <option value="early-leave">Early Leave</option>
+              <option value="absent">Absent</option>
+            </select>
+          </div>
+        </div>
+      </section>
 
       {/* Attendance Table */}
       <div className="overflow-x-auto border rounded">
-        <table className="min-w-full divide-y divide-gray-200 text-sm">
+        <table className="min-w-full divide-y divide-gray-200 text-gray-600">
           <thead className="bg-gray-50">
             <tr>
               <th className="px-3 py-2 text-left">ID</th>
@@ -440,7 +497,9 @@ export default function DailyAttendancePage() {
 
       {/* Chart */}
       <div className="mt-6 p-4 border rounded">
-        <h2 className="text-lg font-bold mb-2">Attendance Summary</h2>
+        <h2 className="text-lg text-gray-600 font-bold mb-2">
+          Attendance Summary
+        </h2>
         <ResponsiveContainer width="100%" height={250}>
           <BarChart data={chartData}>
             <CartesianGrid strokeDasharray="3 3" />

@@ -724,15 +724,15 @@ function StatCard({ title, value, delta, icon, accent = "green" }) {
   return (
     <motion.div
       whileHover={{ scale: 1.03 }}
-      className="bg-gradient-to-br from-indigo-50 to-white dark:from-slate-800 dark:to-slate-900 rounded-2xl p-5 shadow hover:shadow-lg transition"
+      className="bg-white  rounded-2xl p-5 shadow hover:shadow-lg transition"
     >
       <div className="flex items-center justify-between gap-4">
         <div>
-          <p className="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">
+          <p className="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-600">
             {title}
           </p>
           <div className="mt-1 flex items-baseline gap-3">
-            <div className="text-2xl font-extrabold text-slate-900 dark:text-white">
+            <div className="text-2xl font-extrabold text-slate-900 dark:text-slate-600">
               {value}
             </div>
             <span
@@ -854,15 +854,15 @@ export default function Performance() {
   }, []);
 
   return (
-    <div className="min-h-screen p-6 bg-gradient-to-br from-indigo-50 via-white to-slate-100 dark:from-slate-900 dark:to-slate-950 transition">
+    <div className="min-h-screen p-6 bg-gradient-to-br ">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
         <header className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-extrabold text-indigo-600 dark:text-indigo-400">
+            <h1 className="text-3xl font-extrabold text-indigo-600 dark:text-indigo-600">
               Department Performance
             </h1>
-            <p className="text-sm text-slate-600 dark:text-slate-400">
+            <p className="text-sm text-slate-600 dark:text-slate-500">
               Interactive dashboard with filters, exports, and insights.
             </p>
           </div>
@@ -896,17 +896,17 @@ export default function Performance() {
 
         {/* Overview */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
-          <div className="lg:col-span-2 bg-white dark:bg-slate-800 rounded-2xl p-6 shadow">
+          <div className="lg:col-span-2 bg-white  rounded-2xl p-6 shadow">
             <div className="flex items-start justify-between">
               <div>
-                <p className="text-sm text-slate-500 dark:text-slate-400">
+                <p className="text-sm text-slate-500 dark:text-slate-600">
                   Best:{" "}
                   <span className="font-bold text-green-600">
                     {bestDept.department}
                   </span>{" "}
                   — {bestDept.score}%
                 </p>
-                <p className="text-sm text-slate-500 dark:text-slate-400">
+                <p className="text-sm text-slate-500 dark:text-slate-600">
                   Lowest:{" "}
                   <span className="font-bold text-red-600">
                     {worstDept.department}
@@ -953,9 +953,9 @@ export default function Performance() {
           {/* Department Scores */}
           <motion.div
             whileHover={{ scale: 1.02 }}
-            className="bg-white dark:bg-slate-800 rounded-2xl p-4 shadow"
+            className="bg-white  rounded-2xl p-4 shadow"
           >
-            <h4 className="text-sm text-slate-600 dark:text-slate-400">
+            <h4 className="text-sm text-slate-600 dark:text-slate-600">
               Scores
             </h4>
             <ResponsiveContainer width="100%" height={220}>
@@ -976,9 +976,9 @@ export default function Performance() {
           {/* Contribution Pie */}
           <motion.div
             whileHover={{ scale: 1.02 }}
-            className="bg-white dark:bg-slate-800 rounded-2xl p-4 shadow"
+            className="bg-white  rounded-2xl p-4 shadow"
           >
-            <h4 className="text-sm text-slate-600 dark:text-slate-400">
+            <h4 className="text-sm text-slate-600 dark:text-slate-600">
               Contribution
             </h4>
             <ResponsiveContainer width="100%" height={220}>
@@ -996,9 +996,9 @@ export default function Performance() {
           {/* Trends */}
           <motion.div
             whileHover={{ scale: 1.02 }}
-            className="bg-white dark:bg-slate-800 rounded-2xl p-4 shadow"
+            className="bg-white  rounded-2xl p-4 shadow"
           >
-            <h4 className="text-sm text-slate-600 dark:text-slate-400">
+            <h4 className="text-sm text-slate-600 dark:text-slate-600">
               Trends
             </h4>
             <div className="mt-3 space-y-3">
@@ -1009,7 +1009,7 @@ export default function Performance() {
                       className="w-2 h-6 rounded"
                       style={{ background: COLORS[i] }}
                     ></span>
-                    <span className="text-sm font-medium text-slate-700 dark:text-slate-200">
+                    <span className="text-sm font-medium text-slate-700 dark:text-slate-600">
                       {d}
                     </span>
                   </div>
@@ -1030,8 +1030,8 @@ export default function Performance() {
               className="overflow-hidden"
             >
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 shadow">
-                  <h4 className="text-sm text-slate-600 dark:text-slate-400">
+                <div className="bg-white  rounded-2xl p-4 shadow">
+                  <h4 className="text-sm text-slate-600 dark:text-slate-600">
                     Monthly Breakdown
                   </h4>
                   <ResponsiveContainer width="100%" height={250}>
@@ -1047,11 +1047,11 @@ export default function Performance() {
                   </ResponsiveContainer>
                 </div>
 
-                <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 shadow">
-                  <h4 className="text-sm text-slate-600 dark:text-slate-400">
+                <div className="bg-white  rounded-2xl p-4 shadow">
+                  <h4 className="text-sm text-slate-600 dark:text-slate-600">
                     Insights
                   </h4>
-                  <ul className="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-400">
+                  <ul className="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-600">
                     <li>• IT leads consistently — share practices.</li>
                     <li>• Marketing fluctuates — training needed.</li>
                     <li>• Sales spikes correlate with IT strength.</li>
@@ -1063,7 +1063,7 @@ export default function Performance() {
         </AnimatePresence>
 
         {/* Table */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 shadow">
+        <div className="bg-white  rounded-2xl p-4 shadow">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <Search size={16} className="text-slate-400" />
@@ -1077,7 +1077,7 @@ export default function Performance() {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="rounded px-2 py-1 border bg-white dark:bg-slate-700"
+              className="rounded px-2 py-1 border bg-white dark:bg-slate-500 text-white"
             >
               <option value="score">Sort by Score</option>
               <option value="department">Sort by Name</option>
@@ -1086,7 +1086,7 @@ export default function Performance() {
 
           <table className="w-full text-sm">
             <thead>
-              <tr className="bg-slate-100 dark:bg-slate-700">
+              <tr className="bg-slate-100 dark:bg-slate-500 text-white">
                 <th className="p-2 text-left">Department</th>
                 <th className="p-2">Score</th>
                 <th className="p-2">Trend</th>
@@ -1097,9 +1097,9 @@ export default function Performance() {
               {tableRows.map((dept, idx) => (
                 <tr
                   key={idx}
-                  className="border-b hover:bg-slate-50 dark:hover:bg-slate-700 transition"
+                  className="border-b hover:bg-slate-50 dark:hover:bg-slate-400 transition"
                 >
-                  <td className="p-2 font-medium text-slate-700 dark:text-slate-200">
+                  <td className="p-2 font-medium text-slate-700 dark:text-slate-600">
                     {dept.department}
                   </td>
                   <td className="p-2 text-center">
@@ -1132,7 +1132,7 @@ export default function Performance() {
                       <motion.button
                         whileHover={{ scale: 1.04 }}
                         onClick={() => alert(`${dept.department} details`)}
-                        className="px-3 py-1 rounded-lg border text-xs bg-white dark:bg-slate-700"
+                        className="px-3 py-1 rounded-lg border text-white bg-white dark:bg-slate-500"
                       >
                         View
                       </motion.button>
@@ -1162,14 +1162,14 @@ export default function Performance() {
           </table>
 
           <div className="mt-4 flex items-center justify-between">
-            <div className="text-sm text-slate-500 dark:text-slate-400">
+            <div className="text-sm text-slate-500 dark:text-slate-600">
               Last updated: <strong>September 11, 2025</strong>
             </div>
 
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setExpanded((s) => !s)}
-                className="text-sm px-3 py-2 rounded-xl border hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+                className="text-sm px-3 py-2 rounded-xl border hover:bg-slate-100 dark:hover:bg-slate-500 transition"
               >
                 {expanded ? "Hide Details" : "Show Details"}
               </button>

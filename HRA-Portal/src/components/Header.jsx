@@ -12,7 +12,7 @@ function Header() {
   };
 
   return (
-    <header className="bg-gradient-to-r from-indigo-600 to-yellow-600 text-white py-4 shadow-lg">
+    <header className="bg-gradient-to-r from-gray-500 to-gray-600 text-white py-4 shadow-lg">
       <div className="max-w-6xl mx-auto px-4 flex justify-between items-center">
         {/* Title */}
         <h1 className="text-lg md:text-3xl font-bold tracking-wide">
