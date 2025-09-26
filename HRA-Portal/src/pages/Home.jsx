@@ -134,7 +134,7 @@ export default function Home() {
           </p>
         </div>
         <img
-          src={user?.avatar || "https://i.pravatar.cc/100"}
+          src={user?.avatar || "https://avatar.iran.liara.run/public"}
           alt="avatar"
           className="w-24 h-24 rounded-full mt-4 md:mt-0"
         />
