@@ -1,5 +1,6 @@
 import { useState } from "react";
 import AddEmployeeForm from "../components/AddEmployeeForm";
+import EmployeeFetchID from "../components/EmployeeComponent/EmployeeFetchID";
 import EmployeeProfile from "../components/EmployeeProfile";
 import EmployeeTable from "../components/EmployeeTable";
 
@@ -108,6 +109,9 @@ export default function Employees() {
       </div>
       <div className="border rounded p-4 shadow">
         <EmployeeProfile employee={selectedEmployee} />
+      </div>
+      <div>
+        <EmployeeFetchID />
       </div>
     </div>
   );

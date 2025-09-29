@@ -43,7 +43,7 @@ export default function Sidebar({ sidebarOpen, topVisible }) {
         transform: topVisible ? "translateY(0)" : "translateY(-64px)",
       }}
     >
-      <nav className="flex flex-col mt-2 px-2 py-4 gap-1">
+      <nav className="flex flex-col mt-2 px-2 py-4 text-gray-700 gap-1">
         {menu.map(({ name, path, icon: Icon }) => (
           <Link
             key={path}
