@@ -8,19 +8,17 @@ export default function Employees() {
   const [selectedEmployee, setSelectedEmployee] = useState(null);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
   // 🔹 Fetch Employees
   const fetchEmployees = async () => {
     setLoading(true);
     setMessage("");
     try {
-      const res = await fetch(
-        "http://localhost:8081/api/employees/getAllEmployee",
-        {
-          method: "GET",
-          headers: { "Content-Type": "application/json" },
-        }
-      );
+      const res = await fetch(`${API_BASE}/api/employees/getAllEmployee`, {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      });
 
       if (!res.ok) throw new Error("Failed to fetch employees");
 

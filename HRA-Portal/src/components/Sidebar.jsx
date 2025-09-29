@@ -1,4 +1,3 @@
-// src/components/Sidebar.jsx
 import {
   Briefcase,
   CalendarCheck,
@@ -9,7 +8,6 @@ import {
   HeartPulse,
   Home,
   MapPin,
-  Menu,
   Package,
   Settings,
   TrendingUp,
@@ -34,49 +32,33 @@ const menu = [
   { name: "Settings", path: "/settings", icon: Settings },
 ];
 
-export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
+export default function Sidebar({ sidebarOpen, topVisible }) {
   const location = useLocation();
 
   return (
-    <div
-      className={`${
-        sidebarOpen ? "w-64" : "w-20"
-      } h-screen bg-white shadow-lg flex flex-col transition-all duration-300`}
+    <aside
+      className={`fixed top-16 left-0 h-[calc(100%-64px)] bg-white shadow-lg transition-all duration-300 z-30 overflow-auto`}
+      style={{
+        width: sidebarOpen ? 256 : 80,
+        transform: topVisible ? "translateY(0)" : "translateY(-64px)",
+      }}
     >
-      {/* Top Section */}
-      <div className="flex items-center relative p-4 border-b">
-        <h1
-          className={`ml-2 text-2xl font-bold whitespace-nowrap transition-opacity duration-300 ${
-            sidebarOpen ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          EMS
-        </h1>
-        <button
-          onClick={() => setSidebarOpen(!sidebarOpen)}
-          className="p-2 rounded-lg hover:bg-gray-100 transition absolute top-1 right-1"
-        >
-          <Menu size={22} />
-        </button>
-      </div>
-
-      {/* Navigation Menu (scrollable area) */}
-      <nav className="flex-1 overflow-y-auto px-2 py-4">
+      <nav className="flex flex-col mt-2 px-2 py-4 gap-1">
         {menu.map(({ name, path, icon: Icon }) => (
           <Link
             key={path}
             to={path}
             className={`flex items-center ${
               sidebarOpen ? "gap-3 px-4" : "justify-center"
-            } py-3 rounded-xl mb-1 transition-colors ${
+            } py-3 rounded-xl transition-colors ${
               location.pathname === path
-                ? "bg-blue-500 text-white"
+                ? "bg-gray-500 text-white"
                 : "hover:bg-gray-100"
             }`}
           >
             <Icon size={20} />
             <span
-              className={`transition-opacity duration-300 ${
+              className={`transition-opacity duration-300 whitespace-nowrap ${
                 sidebarOpen ? "opacity-100" : "opacity-0 w-0"
               }`}
             >
@@ -85,6 +67,6 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
           </Link>
         ))}
       </nav>
-    </div>
+    </aside>
   );
 }
