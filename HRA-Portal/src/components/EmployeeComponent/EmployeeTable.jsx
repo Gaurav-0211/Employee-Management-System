@@ -6,9 +6,8 @@ export default function EmployeeTable({
   setSelectedEmployee,
 }) {
   const [page, setPage] = useState(1);
-  const pageSize = 5; // show 5 employees per page
+  const pageSize = 5;
 
-  // role & department lookup maps
   const roleMap = {
     1: "CEO",
     2: "CTO",
@@ -34,7 +33,7 @@ export default function EmployeeTable({
     return <p className="text-gray-500">No employees found.</p>;
   }
 
-  // pagination logic
+  // pagination
   const totalPages = Math.ceil(employees.length / pageSize);
   const startIndex = (page - 1) * pageSize;
   const currentEmployees = employees.slice(startIndex, startIndex + pageSize);
@@ -43,7 +42,7 @@ export default function EmployeeTable({
     <div className="overflow-x-auto">
       <table className="min-w-full border rounded">
         <thead>
-          <tr className="bg-gray-100 text-left">
+          <tr className="bg-gray-100 text-left text-gray-600 font-medium">
             <th className="p-3">Name</th>
             <th className="p-3">Email</th>
             <th className="p-3">Role</th>
@@ -78,7 +77,7 @@ export default function EmployeeTable({
           className={`px-4 py-2 rounded ${
             page === 1
               ? "bg-gray-300 text-gray-600 cursor-not-allowed"
-              : "bg-blue-600 text-white hover:bg-blue-700"
+              : "bg-gray-600 text-white hover:bg-gray-700"
           }`}
         >
           Prev
@@ -92,7 +91,7 @@ export default function EmployeeTable({
           className={`px-4 py-2 rounded ${
             page === totalPages
               ? "bg-gray-300 text-gray-600 cursor-not-allowed"
-              : "bg-blue-600 text-white hover:bg-blue-700"
+              : "bg-gray-600 text-white hover:bg-gray-700"
           }`}
         >
           Next

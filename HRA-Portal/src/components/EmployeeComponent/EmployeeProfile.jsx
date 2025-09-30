@@ -20,7 +20,7 @@ export default function EmployeeProfile({ employee }) {
       transition={{ duration: 0.5 }}
       className="mt-6 rounded-2xl border bg-white p-8 shadow-lg"
     >
-      <h2 className="mb-6 text-3xl font-bold text-gray-800">
+      <h2 className="mb-6 text-3xl font-bold text-gray-700">
         Employee Profile
       </h2>
 

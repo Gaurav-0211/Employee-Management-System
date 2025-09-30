@@ -118,7 +118,7 @@ export default function EmployeeFetchID() {
     <motion.button
       onClick={onClick}
       whileTap={{ scale: 0.98 }}
-      className={`px-5 py-2 mt-[1rem] bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-lg shadow hover:from-blue-700 hover:to-indigo-700 transition ${className}`}
+      className={`px-5 py-2 mt-[1rem] bg-gradient-to-r from-gray-600 to-gray-600 text-white font-semibold rounded-lg shadow hover:from-gray-700 hover:to-gray-700 transition ${className}`}
       {...rest}
     >
       {children}

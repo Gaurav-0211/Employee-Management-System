@@ -72,7 +72,7 @@ export default function AddEmployeeForm({ onAdd }) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      <h2 className="text-xl font-semibold">Add New Employee</h2>
+      <h2 className="text-xl text-gray-700 font-semibold">Add New Employee</h2>
 
       <input
         type="text"
@@ -170,7 +170,7 @@ export default function AddEmployeeForm({ onAdd }) {
 
       <button
         type="submit"
-        className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded w-full"
+        className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded w-full"
       >
         Add Employee
       </button>

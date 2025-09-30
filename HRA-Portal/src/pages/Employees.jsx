@@ -12,7 +12,6 @@ export default function Employees() {
   const [message, setMessage] = useState("");
   const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
-  //  Fetch Employees
   const fetchEmployees = async () => {
     setLoading(true);
     setMessage("");
@@ -42,7 +41,6 @@ export default function Employees() {
     }
   };
 
-  // Add Employee
   const handleAddEmployee = async (newEmployee) => {
     setLoading(true);
     setMessage("");
@@ -59,7 +57,6 @@ export default function Employees() {
       console.log("Register Response:", responseData);
 
       setMessage(" Employee added successfully!");
-      // await fetchEmployees();
     } catch (error) {
       console.error("Error adding employee:", error);
       setMessage("❌ Failed to add employee");
@@ -70,9 +67,8 @@ export default function Employees() {
 
   return (
     <div className="p-6 space-y-6">
-      <h1 className="text-3xl font-bold">Employee Management</h1>
+      <h1 className="text-3xl text-gray-700 font-bold">Employee Management</h1>
 
-      {/* Status Message */}
       {message && (
         <div
           className={`p-3 rounded ${
@@ -87,20 +83,17 @@ export default function Employees() {
         </div>
       )}
 
-      {/* Add Employee Form */}
       <div className="border rounded p-4 shadow">
         <AddEmployeeForm onAdd={handleAddEmployee} />
       </div>
 
-      {/* Fetch Employees Button */}
       <button
         onClick={fetchEmployees}
-        className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded"
+        className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded"
       >
         {loading ? "Loading..." : "Fetch Employees"}
       </button>
 
-      {/* Employee Table */}
       <div className="border rounded p-4 shadow">
         <EmployeeTable
           employees={employees}
