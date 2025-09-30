@@ -1,8 +1,9 @@
 import { useState } from "react";
-import AddEmployeeForm from "../components/AddEmployeeForm";
+import AddEmployeeForm from "../components/EmployeeComponent/AddEmployeeForm";
+import DeleteEmployee from "../components/EmployeeComponent/DeleteEmployee";
 import EmployeeFetchID from "../components/EmployeeComponent/EmployeeFetchID";
-import EmployeeProfile from "../components/EmployeeProfile";
-import EmployeeTable from "../components/EmployeeTable";
+import EmployeeProfile from "../components/EmployeeComponent/EmployeeProfile";
+import EmployeeTable from "../components/EmployeeComponent/EmployeeTable";
 
 export default function Employees() {
   const [employees, setEmployees] = useState([]);
@@ -11,7 +12,7 @@ export default function Employees() {
   const [message, setMessage] = useState("");
   const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
-  // 🔹 Fetch Employees
+  //  Fetch Employees
   const fetchEmployees = async () => {
     setLoading(true);
     setMessage("");
@@ -28,7 +29,7 @@ export default function Employees() {
 
       if (data.status === "SUCCESS" && Array.isArray(data.data.content)) {
         setEmployees(data.data.content);
-        setMessage("✅ Employees fetched successfully!");
+        setMessage("Employees fetched successfully!");
       } else {
         setEmployees([]);
         setMessage("⚠️ No employees found");
@@ -41,12 +42,12 @@ export default function Employees() {
     }
   };
 
-  // 🔹 Add Employee
+  // Add Employee
   const handleAddEmployee = async (newEmployee) => {
     setLoading(true);
     setMessage("");
     try {
-      const res = await fetch("http://localhost:8081/api/employees/register", {
+      const res = await fetch(`${API_BASE}/api/employees/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newEmployee),
@@ -57,7 +58,7 @@ export default function Employees() {
       const responseData = await res.json();
       console.log("Register Response:", responseData);
 
-      setMessage("✅ Employee added successfully!");
+      setMessage(" Employee added successfully!");
       // await fetchEmployees();
     } catch (error) {
       console.error("Error adding employee:", error);
@@ -86,6 +87,11 @@ export default function Employees() {
         </div>
       )}
 
+      {/* Add Employee Form */}
+      <div className="border rounded p-4 shadow">
+        <AddEmployeeForm onAdd={handleAddEmployee} />
+      </div>
+
       {/* Fetch Employees Button */}
       <button
         onClick={fetchEmployees}
@@ -93,11 +99,6 @@ export default function Employees() {
       >
         {loading ? "Loading..." : "Fetch Employees"}
       </button>
-
-      {/* Add Employee Form */}
-      <div className="border rounded p-4 shadow">
-        <AddEmployeeForm onAdd={handleAddEmployee} />
-      </div>
 
       {/* Employee Table */}
       <div className="border rounded p-4 shadow">
@@ -112,6 +113,9 @@ export default function Employees() {
       </div>
       <div>
         <EmployeeFetchID />
+      </div>
+      <div>
+        <DeleteEmployee />
       </div>
     </div>
   );
