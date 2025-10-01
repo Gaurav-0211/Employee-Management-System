@@ -1,128 +1,3 @@
-// import { RefreshCw, Search } from "lucide-react";
-// import { useEffect, useState } from "react";
-
-// export default function EmployeeTracker() {
-//   const [employeeId, setEmployeeId] = useState("");
-//   const [location, setLocation] = useState(null);
-//   const [tracking, setTracking] = useState(false);
-//   const [loading, setLoading] = useState(false);
-
-//   const fetchLocation = async () => {
-//     if (!employeeId) return;
-//     setLoading(true);
-//     try {
-//       const res = await fetch(
-//         `http://localhost:8081/api/location/${employeeId}`
-//       );
-//       if (!res.ok) throw new Error("Failed to fetch location");
-//       const data = await res.json();
-//       setLocation({
-//         lat: data.latitude,
-//         lng: data.longitude,
-//         accuracy: data.accuracy,
-//         timestamp: data.timestamp,
-//       });
-//     } catch (err) {
-//       console.error(err);
-//       setLocation(null);
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
-
-//   // Auto refresh every 10 sec when tracking
-//   useEffect(() => {
-//     let interval;
-//     if (tracking && employeeId) {
-//       fetchLocation();
-//       interval = setInterval(fetchLocation, 10000);
-//     }
-//     return () => clearInterval(interval);
-//   }, [tracking, employeeId]);
-
-//   return (
-//     <div className="flex flex-col items-center p-6 min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-//       <h1 className="text-2xl font-bold text-indigo-700 mb-6">
-//         Employee Live Tracker
-//       </h1>
-
-//       <div className="flex gap-2 mb-4">
-//         <input
-//           type="number"
-//           placeholder="Enter Employee ID"
-//           value={employeeId}
-//           onChange={(e) => setEmployeeId(e.target.value)}
-//           className="px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-400 outline-none"
-//         />
-//         {!tracking ? (
-//           <button
-//             onClick={() => setTracking(true)}
-//             disabled={!employeeId}
-//             className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition"
-//           >
-//             <Search /> Start Tracking
-//           </button>
-//         ) : (
-//           <button
-//             onClick={() => setTracking(false)}
-//             className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
-//           >
-//             Stop
-//           </button>
-//         )}
-
-//         {/* Manual Refresh */}
-//         <button
-//           onClick={fetchLocation}
-//           disabled={!employeeId || loading}
-//           className="flex items-center gap-2 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition"
-//         >
-//           <RefreshCw className={loading ? "animate-spin" : ""} /> Refresh
-//         </button>
-//       </div>
-
-//       <div className="w-full max-w-4xl h-[500px] rounded-xl shadow-lg overflow-hidden bg-white flex items-center justify-center">
-//         {location ? (
-//           <iframe
-//             title="Employee Location"
-//             width="100%"
-//             height="100%"
-//             style={{ border: 0 }}
-//             loading="lazy"
-//             referrerPolicy="no-referrer-when-downgrade"
-//             src={`https://www.google.com/maps?q=${location.lat},${location.lng}&hl=en&z=17&output=embed`}
-//           ></iframe>
-//         ) : (
-//           <p className="text-gray-500">Enter Employee ID and start tracking</p>
-//         )}
-//       </div>
-
-//       {location && (
-//         <div className="mt-4 p-4 bg-white shadow rounded-lg text-gray-700">
-//           <p>
-//             <strong>Employee ID:</strong> {employeeId}
-//           </p>
-//           <p>
-//             <strong>Latitude:</strong> {location.lat}
-//           </p>
-//           <p>
-//             <strong>Longitude:</strong> {location.lng}
-//           </p>
-//           {location.accuracy && (
-//             <p>
-//               <strong>Accuracy:</strong> ±{Math.round(location.accuracy)} m
-//             </p>
-//           )}
-//           <p>
-//             <strong>Last Updated:</strong>{" "}
-//             {new Date(location.timestamp).toLocaleString()}
-//           </p>
-//         </div>
-//       )}
-//     </div>
-//   );
-// }
-
 import { Clock, Loader2, MapPin, RefreshCw, Search, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
@@ -178,7 +53,6 @@ export default function EmployeeTracker() {
       fetchLocation();
       intervalRef.current = setInterval(fetchLocation, 10000);
 
-      // countdown timer
       setRefreshCountdown(10);
       countdownRef.current = setInterval(() => {
         setRefreshCountdown((prev) => (prev > 1 ? prev - 1 : 10));
@@ -193,7 +67,6 @@ export default function EmployeeTracker() {
 
   return (
     <div className="flex flex-col items-center p-6 min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-100">
-      {/* Page Header */}
       <div className="flex items-center justify-between w-full max-w-6xl mb-6">
         <h1 className="text-3xl font-extrabold text-indigo-700 flex items-center gap-2">
           <MapPin /> Employee Live Tracker
@@ -206,7 +79,6 @@ export default function EmployeeTracker() {
         )}
       </div>
 
-      {/* Controls */}
       <div className="flex flex-wrap gap-3 mb-6 w-full max-w-6xl">
         <input
           type="number"
@@ -237,7 +109,6 @@ export default function EmployeeTracker() {
           </button>
         )}
 
-        {/* Manual Refresh */}
         <button
           onClick={fetchLocation}
           disabled={!employeeId || loading}
@@ -248,7 +119,6 @@ export default function EmployeeTracker() {
         </button>
       </div>
 
-      {/* Error Message */}
       {errorMsg && (
         <div className="mb-4 text-red-600 bg-red-50 px-4 py-2 rounded-lg border border-red-200 shadow">
           {errorMsg}
@@ -278,7 +148,6 @@ export default function EmployeeTracker() {
         )}
       </div>
 
-      {/* Current Location Info */}
       {location && (
         <div className="mt-6 w-full max-w-6xl grid md:grid-cols-2 gap-6">
           <div className="p-6 bg-white shadow rounded-xl">
@@ -307,7 +176,6 @@ export default function EmployeeTracker() {
             </div>
           </div>
 
-          {/* Location History */}
           <div className="p-6 bg-white shadow rounded-xl overflow-auto max-h-64">
             <h2 className="text-lg font-semibold text-indigo-700 mb-4">
               Location History (Last {history.length} points)
@@ -335,7 +203,6 @@ export default function EmployeeTracker() {
         </div>
       )}
 
-      {/* Footer */}
       <footer className="mt-10 text-sm text-gray-500">
         Employee Tracker © {new Date().getFullYear()} • Built with 💙
       </footer>
