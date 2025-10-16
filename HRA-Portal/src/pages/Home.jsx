@@ -130,7 +130,7 @@ export default function Home() {
             Welcome, {user?.name || "Employee"}!
           </h1>
           <p className="text-lg md:text-xl">
-            Here’s a summary of your activities and important updates.
+            Here’s a summary of company activities and important updates.
           </p>
         </div>
         <img

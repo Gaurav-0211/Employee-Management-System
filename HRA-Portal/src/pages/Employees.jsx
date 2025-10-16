@@ -24,7 +24,6 @@ export default function Employees() {
       if (!res.ok) throw new Error("Failed to fetch employees");
 
       const data = await res.json();
-      console.log("Fetched All Employees:", data);
 
       if (data.status === "SUCCESS" && Array.isArray(data.data.content)) {
         setEmployees(data.data.content);

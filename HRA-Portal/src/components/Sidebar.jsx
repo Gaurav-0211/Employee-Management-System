@@ -23,12 +23,12 @@ const menu = [
   { name: "Leaves", path: "/leaves", icon: CalendarDays },
   { name: "Holidays", path: "/holiday", icon: CalendarHeart },
   { name: "Performance", path: "/performance", icon: TrendingUp },
-  { name: "Track Employee", path: "/location", icon: Compass },
-  { name: "Send Location", path: "/live-location", icon: MapPin },
-  { name: "Wellness and Care", path: "/wellness", icon: HeartPulse },
   { name: "Projects", path: "/project", icon: Briefcase },
   { name: "Products", path: "/product", icon: Package },
   { name: "Supports", path: "/support", icon: Headset },
+  { name: "Track Employee", path: "/location", icon: Compass },
+  { name: "Send Location", path: "/live-location", icon: MapPin },
+  { name: "Wellness and Care", path: "/wellness", icon: HeartPulse },
   { name: "Settings", path: "/settings", icon: Settings },
 ];
 
