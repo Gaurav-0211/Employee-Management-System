@@ -313,7 +313,6 @@ export default function EmployeeFetchID() {
         <CardContent className="flex gap-4 items-center">
           <input
             ref={empIdRef}
-            autoFocus
             type="text"
             value={empId}
             onChange={(e) => setEmpId(e.target.value)}
