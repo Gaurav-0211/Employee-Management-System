@@ -43,14 +43,14 @@ export default function Sidebar({ sidebarOpen, topVisible }) {
         transform: topVisible ? "translateY(0)" : "translateY(-64px)",
       }}
     >
-      <nav className="flex flex-col mt-2 px-2 py-4 text-gray-700 gap-1">
+      <nav className="flex flex-col mt-2 px-2 py-2 text-gray-700 gap-1">
         {menu.map(({ name, path, icon: Icon }) => (
           <Link
             key={path}
             to={path}
             className={`flex items-center ${
-              sidebarOpen ? "gap-3 px-4" : "justify-center"
-            } py-3 rounded-xl transition-colors ${
+              sidebarOpen ? "gap-3 px-2" : "justify-center"
+            } py-2 rounded-xl transition-colors ${
               location.pathname === path
                 ? "bg-gray-500 text-white"
                 : "hover:bg-gray-100"
