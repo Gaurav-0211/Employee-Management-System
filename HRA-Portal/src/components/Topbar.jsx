@@ -13,7 +13,7 @@ export default function Topbar({ sidebarOpen, setSidebarOpen, visible }) {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 bg-gray-500 flex items-center justify-between px-6 py-4  shadow-md z-40 transition-transform duration-300"
+      className="fixed top-0 left-0 right-0 bg-gray-500 flex items-center justify-between px-6 py-2  shadow-md z-40 transition-transform duration-300"
       style={{
         transform: visible ? "translateY(0)" : "translateY(-100%)",
       }}
