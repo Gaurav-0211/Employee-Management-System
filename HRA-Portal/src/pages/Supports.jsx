@@ -123,7 +123,7 @@ export default function Supports() {
   return (
     <div className="p-6 space-y-10 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
       <h1 className="text-4xl font-extrabold text-center text-indigo-700 drop-shadow-md">
-        🛠️ Support Queries
+        Support Queries
       </h1>
 
       {message && (
@@ -141,7 +141,7 @@ export default function Supports() {
       {/* Raise Query */}
       <div className="bg-white shadow-xl rounded-2xl p-6 max-w-2xl mx-auto border border-indigo-100">
         <h2 className="text-xl font-semibold mb-4 text-indigo-700">
-          ➕ Raise a New Query
+          Raise a New Query
         </h2>
         <form onSubmit={handleRaiseQuery} className="space-y-4">
           <div>
@@ -215,7 +215,7 @@ export default function Supports() {
       {/* Query List */}
       <div>
         <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
-          📋 All Queries
+          All Queries
         </h2>
         {loading ? (
           <p className="text-center">Loading...</p>
