@@ -1,6 +1,12 @@
 "use client";
-import { EyeOff } from "lucide-react";
-import { Button, Card, CardHeader, GhostButton, Switch } from "../ui";
+import {
+  Button,
+  Card,
+  CardHeader,
+  EyeOff,
+  GhostButton,
+  Switch,
+} from "lucide-react";
 
 export default function PrivacySection({
   profileVisibility,

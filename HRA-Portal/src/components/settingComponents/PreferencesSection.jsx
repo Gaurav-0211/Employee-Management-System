@@ -1,6 +1,5 @@
 "use client";
-import { Bell } from "lucide-react";
-import { Button, Card, CardHeader, Switch } from "../ui";
+import { Bell, Button, Card, CardHeader, Switch } from "lucide-react";
 
 export default function PreferencesSection({
   notifications,
