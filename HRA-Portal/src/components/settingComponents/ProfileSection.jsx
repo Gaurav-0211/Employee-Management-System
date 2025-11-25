@@ -1,15 +1,10 @@
 "use client";
-import {
-  Button,
-  Card,
-  CardHeader,
-  Field,
-  GhostButton,
-  Save,
-  UploadCloud,
-  User,
-} from "lucide-react";
-
+import { Save, UploadCloud, User } from "lucide-react";
+import Button from "../ui/Button";
+import Card from "../ui/Card";
+import CardHeader from "../ui/CardHeader";
+import Field from "../ui/Field";
+import GhostButton from "../ui/GhostButton";
 export default function ProfileSection({
   profile,
   avatarPreview,

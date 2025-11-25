@@ -1,13 +1,10 @@
 "use client";
-import {
-  Button,
-  Card,
-  CardHeader,
-  GhostButton,
-  Shield,
-  Switch,
-} from "lucide-react";
-
+import { Shield } from "lucide-react";
+import Button from "../ui/Button";
+import Card from "../ui/Card";
+import CardHeader from "../ui/CardHeader";
+import GhostButton from "../ui/GhostButton";
+import Switch from "../ui/Switch";
 export default function SecuritySection({
   passwords,
   setPasswords,

@@ -1,5 +1,8 @@
 "use client";
-import { Card, CardHeader, GhostButton, Trash2 } from "lucide-react";
+import { Trash2 } from "lucide-react";
+import Card from "../ui/Card";
+import CardHeader from "../ui/CardHeader";
+import GhostButton from "../ui/GhostButton";
 
 export default function DangerZoneSection({ deleting, handleDeleteAccount }) {
   return (
